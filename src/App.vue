@@ -1,9 +1,9 @@
 <template>
-  <div>
-    <transition name="fade">
-      <div v-if="showContent">
-        <h1>Hello World</h1>
-      </div>
+  <div class="container">
+    <!-- elemen yg berada di dlm transition hnya boleh memiliki 1, kecuali memiliki kondisi lain -->
+    <transition name="fade"> 
+      <h1 v-if="showContent">Hello World</h1>
+      <h1 v-else>Good bye</h1>
     </transition>
     <button @click="showContent = !showContent">Click me!</button>
   </div>
@@ -15,6 +15,15 @@ const showContent = ref(true);
 </script>
 
 <style scoped>
+.container {
+  position: relative;
+}
+h1 {
+  position: absolute;
+}
+button {
+  margin-top: 80px;
+}
 .fade-enter-from {
   opacity: 0;
 }
